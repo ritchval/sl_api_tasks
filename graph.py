@@ -12,7 +12,7 @@ PLAYER = config('PLAYER_NAME')
 
 
 logging.basicConfig(level=logging.INFO, filename=f"{os.path.join(config('LOG_PATH'), 'graph.log')}",
-                    format='%(asctime)s - %(levelname)s - %(message)s')
+                    format='%(asctime)s - %(levelname)s - graph - %(message)s')
 
 ratings = []
 power_list = []

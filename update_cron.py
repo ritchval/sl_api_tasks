@@ -17,7 +17,7 @@ NOTIFIER_FILE = os.path.join(PROJECT_PATH, "quest_notifier.py")
 USER = config('SYSTEM_USER')
 
 logging.basicConfig(level=logging.INFO, filename=f"{os.path.join(config('LOG_PATH'), 'update_cron.log')}",
-                    format='%(asctime)s - %(levelname)s - %(message)s')
+                    format='%(asctime)s - %(levelname)s - update_cron - %(message)s')
 
 
 @time_function("'update quest task time'")
@@ -41,7 +41,7 @@ def update_cron():
     quest_time = datetime.fromisoformat(
         quest_data['created_date'].replace('Z', ''))
 
-    quest_time += timedelta(hours=23)
+    quest_time += timedelta(hours=25)
 
     # set the task to the time of next quest
     for job in my_cron:
@@ -51,7 +51,8 @@ def update_cron():
 
             break
 
-    logging.info(f"Changed times to {quest_time.hour}:{str(quest_time.minute).zfill(2)}.")
+    logging.info(
+        f"Changed times to {quest_time.hour}:{str(quest_time.minute).zfill(2)}.")
 
 
 if __name__ == "__main__":

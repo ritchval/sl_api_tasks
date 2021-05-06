@@ -11,7 +11,7 @@ from database.Battle import Battle
 
 PLAYER_NAME = config('PLAYER_NAME')
 logging.basicConfig(level=logging.INFO, filename=f"{os.path.join(config('LOG_PATH'), 'downloader.log')}",
-                    format='%(asctime)s - %(levelname)s - %(message)s')
+                    format='%(asctime)s - %(levelname)s - downloader - %(message)s')
 
 def request_data():
     return requests.get(f"https://api.splinterlands.io/battle/history?player={PLAYER_NAME}"), requests.get(f"https://api.splinterlands.io/players/details?name={PLAYER_NAME}")

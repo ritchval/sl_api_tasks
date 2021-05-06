@@ -12,7 +12,7 @@ PLAYER_NAME = config('PLAYER_NAME')
 DISCORD_ID = config('DISCORD_ID')
 
 logging.basicConfig(level=logging.INFO, filename=f"{os.path.join(config('LOG_PATH'), 'quest_notifier.log')}",
-                    format='%(asctime)s - %(levelname)s - %(message)s')
+                    format='%(asctime)s - %(levelname)s - quest_notifier - %(message)s')
 
 
 @time_function("check_quest")
