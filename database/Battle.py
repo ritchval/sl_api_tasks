@@ -1,10 +1,11 @@
 import os
 from sqlalchemy import Column, Integer, String, Text, create_engine
 from sqlalchemy.ext.declarative import declarative_base
+from config.config import config
 
 Base = declarative_base()
 
-
+DB_PATH = os.path.join(config('PROJECT_PATH'), 'database')
 class Battle(Base):
     __tablename__ = 'Battles'
 
@@ -33,6 +34,6 @@ class Battle(Base):
 
 
 engine = create_engine(
-    f"sqlite:////{os.path.dirname(os.path.realpath(__file__))}/battles.db")
+    f"sqlite:////{os.path.join(DB_PATH, 'battles.db')}")
 
 Base.metadata.create_all(engine)
