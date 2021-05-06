@@ -16,7 +16,7 @@ PYTHON = os.path.join(PROJECT_PATH, ".venv/bin/python")
 NOTIFIER_FILE = os.path.join(PROJECT_PATH, "quest_notifier.py")
 USER = config('SYSTEM_USER')
 
-logging.basicConfig(level=logging.INFO, filename=f"{os.path.join(config('LOG_PATH'), 'update_cron.log')}",
+logging.basicConfig(level=logging.DEBUG, filename=f"{os.path.join(config('LOG_PATH'), 'update_cron.log')}",
                     format='%(asctime)s - %(levelname)s - update_cron - %(message)s')
 
 
@@ -32,7 +32,7 @@ def update_cron():
     sl_response = requests.get(
         f"https://api.splinterlands.io/players/quests?username={PLAYER_NAME}")
 
-    logging.info(f"Splinterlands: {sl_response}")
+    #logging.info(f"Splinterlands: {sl_response}")
 
     # Loading the JSON string data into a dictionary
     quest_data = json.loads(sl_response.text)[0]

@@ -11,7 +11,7 @@ from notification.discord import send_notification
 PLAYER_NAME = config('PLAYER_NAME')
 DISCORD_ID = config('DISCORD_ID')
 
-logging.basicConfig(level=logging.INFO, filename=f"{os.path.join(config('LOG_PATH'), 'quest_notifier.log')}",
+logging.basicConfig(level=logging.DEBUG, filename=f"{os.path.join(config('LOG_PATH'), 'quest_notifier.log')}",
                     format='%(asctime)s - %(levelname)s - quest_notifier - %(message)s')
 
 
@@ -24,7 +24,7 @@ def check_quest():
     # Loading the JSON string data into a dictionary
     quest_data = json.loads(response.text)[0]
 
-    logging.info(quest_data)
+    logging.debug(f"created_date: {quest_data['created_date']}, total_items: {quest_data['total_items']}, completed_items: {quest_data['completed_items']}")
 
     finished = ""
 

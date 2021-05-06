@@ -10,7 +10,7 @@ import database.db_interface as db
 from database.Battle import Battle
 
 PLAYER_NAME = config('PLAYER_NAME')
-logging.basicConfig(level=logging.INFO, filename=f"{os.path.join(config('LOG_PATH'), 'downloader.log')}",
+logging.basicConfig(level=logging.DEBUG, filename=f"{os.path.join(config('LOG_PATH'), 'downloader.log')}",
                     format='%(asctime)s - %(levelname)s - downloader - %(message)s')
 
 def request_data():
@@ -26,8 +26,8 @@ def update_json():
         f"The task 'request_data' took {time.perf_counter() - start:0.4f} seconds.")
 
     # Printing the response of the api server
-    logging.info(f"Battle history: {battles_response}")
-    logging.info(f"Player details: {power_response}")
+    #logging.info(f"Battle history: {battles_response}")
+    #logging.info(f"Player details: {power_response}")
 
     # Loading the JSON string data into a dictionary containing player and battles, which contains a list of dictionaries
     new_data = json.loads(battles_response.text)
