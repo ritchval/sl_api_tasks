@@ -19,7 +19,7 @@ logging.basicConfig(level=logging.DEBUG, filename=f"{os.path.join(config('LOG_PA
 def check_quest():
 
     response = requests.get(
-        f"https://api.splinterlands.io/players/quests?username={PLAYER_NAME}")
+        f"https://api2.splinterlands.com/players/quests?username={PLAYER_NAME}")
 
     # Loading the JSON string data into a dictionary
     quest_data = json.loads(response.text)[0]

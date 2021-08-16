@@ -30,7 +30,7 @@ def update_cron():
     # job.setall(56, 23, '*', '*', '*')
 
     sl_response = requests.get(
-        f"https://api.splinterlands.io/players/quests?username={PLAYER_NAME}")
+        f"https://api2.splinterlands.com/players/quests?username={PLAYER_NAME}")
 
     #logging.info(f"Splinterlands: {sl_response}")
 

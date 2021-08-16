@@ -14,7 +14,7 @@ logging.basicConfig(level=logging.DEBUG, filename=f"{os.path.join(config('LOG_PA
                     format='%(asctime)s - %(levelname)s - downloader - %(message)s')
 
 def request_data():
-    return requests.get(f"https://api.splinterlands.io/battle/history?player={PLAYER_NAME}"), requests.get(f"https://api.splinterlands.io/players/details?name={PLAYER_NAME}")
+    return requests.get(f"https://api2.splinterlands.com/battle/history?player={PLAYER_NAME}"), requests.get(f"https://api2.splinterlands.com/players/details?name={PLAYER_NAME}")
 
 
 def update_json():
